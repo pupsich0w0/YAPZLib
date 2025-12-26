@@ -1,0 +1,1 @@
+YAPZLib is essentially a repository for all the main functions I used in my Project Zomboid mods. If you want to know what exactly this library adds, check out the [wiki]().
