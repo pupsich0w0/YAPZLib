@@ -33,10 +33,12 @@ YAPZLib.VZDAdditions.DoAngledVehicleSpawnPositionBetween = function(vehicle)
 end
 
 YAPZLib.VZDAdditions.DoMissingParts = function(vehicle)
+	if not YAPZLib.Vehicle.CheckChunk(vehicle) then return end
 	local zone, zoneName = YAPZLib.Vehicle.GetVehicleZone(vehicle)
 	if zone ~= nil then
 		if VehicleZoneDistribution[zoneName] ~= nil then
-			if VehicleZoneDistribution[zoneName].vehicleWithoutPartsChance ~= nil and VehicleZoneDistribution[zoneName].percentOfMissingParts ~= nil then
+			if VehicleZoneDistribution[zoneName].vehicleWithoutPartsChance ~= nil then
+				if VehicleZoneDistribution[zoneName].percentOfMissingParts == nil then VehicleZoneDistribution[zoneName].percentOfMissingParts = 16 end
 				local partsCount = vehicle:getPartCount()
 				local missingParts = {}
 				missingParts.count = 0

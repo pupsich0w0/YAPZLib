@@ -2,7 +2,7 @@ YAPZLib = YAPZLib or {}
 YAPZLib.Delay = {}
 YAPZLib.Delay.Tab = {}
 
-function YAPZLib.Delay.Process()
+YAPZLib.Delay.Process = function()
 	for i=#YAPZLib.Delay.Tab, 1, -1 do
 		local delayedFunc = YAPZLib.Delay.Tab[i]
 		local ticks = delayedFunc.ticks
@@ -19,7 +19,7 @@ function YAPZLib.Delay.Process()
 	end
 end
 
-function YAPZLib.Delay.Add(func, ticks, args)
+YAPZLib.Delay.Add = function(func, ticks, args)
 	table.insert(YAPZLib.Delay.Tab, { func = func, ticks = ticks, args = args })
 	Events.OnTick.Add(YAPZLib.Delay.Process)
 end
