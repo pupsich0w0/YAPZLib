@@ -83,7 +83,7 @@ YAPZLib.VehicleZone.Register = function(zoneObjs, doModdedCheck)
 		if vehicleZone.type == "ParkingStall" then
 			local shouldRegister = true
 			if doModdedCheck then
-				local cx, cy = YAPZLib.Cell.GetCoordinates(zoneX, zoneY)
+				local cx, cy = YAPZLib.Cell.GetCoordinates(vehicleZone.x, vehicleZone.y)
 				shouldRegister = not YAPZLib.Cell.IsModded(cx, cy)
 			end
 			if shouldRegister then

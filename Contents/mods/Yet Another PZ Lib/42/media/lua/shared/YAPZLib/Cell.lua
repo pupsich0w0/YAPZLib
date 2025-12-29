@@ -16,5 +16,5 @@ YAPZLib.Cell.IsModded = function(cellX, cellY)
 end
 
 YAPZLib.Cell.GetCoordinates = function(x, y)
-	return x / 256, y / 256
+	return math.floor(x / 256), math.floor(y / 256)
 end
